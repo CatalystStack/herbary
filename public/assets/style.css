@@ -96,11 +96,49 @@ header {
   }
 }
 .bg-light-green {
-  background-color: #6BB252 !important; /* Light Green */
+  background-color: #6bb252 !important; /* Light Green */
   color: black !important;
 }
 
 .bg-dark-green {
   background-color: #364127 !important; /* Dark Green */
   color: white !important;
+}
+.card-text {
+  min-height: 60px; /* Adjust based on content */
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card-body {
+  flex-grow: 1;
+}
+.product-card {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.product-card:hover {
+  transform: scale(1.05);
+}
+.product-details {
+  display: none;
+}
+.book-now-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: #333;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }

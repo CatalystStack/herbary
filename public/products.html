@@ -10,18 +10,6 @@
     />
     <link rel="stylesheet" type="text/css" href="assets/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-      .product-card {
-        cursor: pointer;
-        transition: transform 0.3s;
-      }
-      .product-card:hover {
-        transform: scale(1.05);
-      }
-      .product-details {
-        display: none;
-      }
-    </style>
   </head>
   <body>
     <header>
@@ -88,106 +76,178 @@
           and high-quality spices, sourced from trusted farms to ensure purity
           and rich flavor.
         </p>
-        <div class="row">
-          <script>
-            const products = [
-              {
-                id: 'product1',
-                name: 'Whole Turmeric',
-                image: 'product-1.jpg',
-                description:
-                  'Pure and organic turmeric with high curcumin content.',
-              },
-              {
-                id: 'product2',
-                name: 'Whole Black Pepper',
-                image: 'product-2.jpg',
-                description:
-                  'Premium-quality black pepper, rich in aroma and flavor.',
-              },
-              {
-                id: 'product3',
-                name: 'Green Cardamom',
-                image: 'product-3.jpg',
-                description:
-                  'Exquisite green cardamom with a sweet, floral aroma.',
-              },
-              {
-                id: 'product4',
-                name: 'Dried Ginger',
-                image: 'product4.jpg',
-                description: 'Premium dried ginger with a pungent aroma.',
-              },
-              {
-                id: 'product5',
-                name: 'White Pepper',
-                image: 'product5.jpg',
-                description:
-                  'Delicately flavored white pepper, perfect for seasoning.',
-              },
-              {
-                id: 'product6',
-                name: 'Spices Coffee',
-                image: 'product6.jpg',
-                description:
-                  'Finely ground coffee powder for a rich experience.',
-              },
-              {
-                id: 'product7',
-                name: 'Turmeric Powder',
-                image: 'product7.jpg',
-                description:
-                  'Finely ground turmeric powder with rich curcumin content.',
-              },
-              {
-                id: 'product8',
-                name: 'Cardamom Seeds',
-                image: 'product9.jpg',
-                description:
-                  'Premium-quality cardamom seeds with intense aroma.',
-              },
-              {
-                id: 'product9',
-                name: 'Ginger Powder',
-                image: 'product8.jpg',
-                description:
-                  'Finely ground ginger powder with a strong, spicy flavor.',
-              },
-            ];
-
-            document.write('<div class="row">');
-            products.forEach((product) => {
-              document.write(`
-                <div class="col-md-4">
-                  <div class="card product-card" onclick="toggleDetails('${product.id}')">
-                    <img src="assets/images/${product.image}" class="card-img-top" alt="${product.name}" />
-                    <div class="card-body text-center">
-                      <h5 class="card-title">${product.name}</h5>
-                    </div>
-                  </div>
-                  <div id="${product.id}" class="product-details p-3 border mt-2">
-                    <p>${product.description}</p>
-                  </div>
-                </div>
-              `);
-            });
-            document.write('</div>');
-          </script>
-        </div>
+        <div class="row" id="product-container"></div>
       </div>
     </section>
 
-    <footer class="py-4 bg-light text-center">
-      <div class="container">
-        <p>&copy; 2025 Herbary Spices Store. All rights reserved.</p>
-      </div>
-    </footer>
-
     <script>
-      function toggleDetails(id) {
-        $('#' + id).slideToggle();
-      }
+      window.onload = function () {
+        let maxHeight = 0;
+        document.querySelectorAll('.card-text').forEach((el) => {
+          if (el.offsetHeight > maxHeight) {
+            maxHeight = el.offsetHeight;
+          }
+        });
+        document.querySelectorAll('.card-text').forEach((el) => {
+          el.style.height = maxHeight + 'px';
+        });
+      };
+      const products = [
+        {
+          id: 'black-pepper-whole',
+          name: 'Black Pepper Whole',
+          images: [
+            'black-pepper-whole/1.jpg',
+            'black-pepper-whole/2.jpg',
+            'black-pepper-whole/3.jpg',
+          ],
+          description: 'Premium whole black pepper, rich in aroma and flavor.',
+          amazonLink: 'https://www.amazon.com/s?k=Black+Pepper+Whole',
+        },
+        {
+          id: 'cardamom',
+          name: 'Cardamom',
+          images: ['cardamom/1.jpg', 'cardamom/2.jpg', 'cardamom/3.jpg'],
+          description: 'High-quality cardamom with a strong, sweet aroma.',
+          amazonLink: 'https://www.amazon.com/s?k=Cardamom',
+        },
+        {
+          id: 'cardamom-seed',
+          name: 'Cardamom Seed',
+          images: [
+            'cardamom-seed/1.jpg',
+            'cardamom-seed/2.jpg',
+            'cardamom-seed/3.jpg',
+          ],
+          description:
+            'Premium-grade cardamom seeds for a flavorful experience.',
+          amazonLink: 'https://www.amazon.com/s?k=Cardamom+Seed',
+        },
+        {
+          id: 'dried-ginger',
+          name: 'Dried Ginger',
+          images: [
+            'dried-ginger/1.jpg',
+            'dried-ginger/2.jpg',
+            'dried-ginger/3.jpg',
+          ],
+          description: 'Sun-dried ginger with a sharp, spicy flavor.',
+          amazonLink: 'https://www.amazon.com/s?k=Dried+Ginger',
+        },
+        {
+          id: 'ginger-powder',
+          name: 'Ginger Powder',
+          images: [
+            'ginger-powder/1.jpg',
+            'ginger-powder/2.jpg',
+            'ginger-powder/3.jpg',
+          ],
+          description:
+            'Finely ground ginger powder, perfect for cooking and tea.',
+          amazonLink: 'https://www.amazon.com/s?k=Ginger+Powder',
+        },
+        {
+          id: 'spices-coffee',
+          name: 'Spices Coffee',
+          images: [
+            'spices-coffee/1.jpg',
+            'spices-coffee/2.jpg',
+            'spices-coffee/3.jpg',
+          ],
+          description: 'A rich blend of coffee infused with aromatic spices.',
+          amazonLink: 'https://www.amazon.com/s?k=Spices+Coffee',
+        },
+        {
+          id: 'turmeric-powder',
+          name: 'Turmeric Powder',
+          images: [
+            'turmeric-powder/1.jpg',
+            'turmeric-powder/2.jpg',
+            'turmeric-powder/3.jpg',
+          ],
+          description: 'Pure turmeric powder with high curcumin content.',
+          amazonLink: 'https://www.amazon.com/s?k=Turmeric+Powder',
+        },
+        {
+          id: 'turmeric-whole',
+          name: 'Turmeric Whole',
+          images: [
+            'turmeric-whole/1.jpg',
+            'turmeric-whole/2.jpg',
+            'turmeric-whole/3.jpg',
+          ],
+          description:
+            'Whole turmeric roots for an authentic culinary experience.',
+          amazonLink: 'https://www.amazon.com/s?k=Turmeric+Whole',
+        },
+        {
+          id: 'white-pepper',
+          name: 'White Pepper',
+          images: [
+            'white-pepper/1.jpg',
+            'white-pepper/2.jpg',
+            'white-pepper/3.jpg',
+          ],
+          description: 'Mild yet pungent white pepper for refined seasoning.',
+          amazonLink: 'https://www.amazon.com/s?k=White+Pepper',
+        },
+      ];
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const productContainer = document.getElementById('product-container');
+
+        products.forEach((product) => {
+          let indicators = '';
+          let carouselItems = '';
+
+          product.images.forEach((image, index) => {
+            indicators += `<button type="button" data-bs-target="#carousel-${
+              product.id
+            }" data-bs-slide-to="${index}" ${
+              index === 0 ? 'class="active"' : ''
+            } aria-label="Slide ${index + 1}"></button>`;
+
+            carouselItems += `
+        <div class="carousel-item ${index === 0 ? 'active' : ''}">
+          <img src="assets/images/products/${image}" class="d-block w-100" alt="${
+              product.name
+            }">
+        </div>`;
+          });
+
+          const productHTML = `
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <div id="carousel-${product.id}" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">${indicators}</div>
+            <div class="carousel-inner">${carouselItems}</div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">${product.description}</p>
+            <a href="${product.amazonLink}" target="_blank" class="btn btn-primary book-now-btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    `;
+          productContainer.innerHTML += productHTML;
+        });
+      });
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
+  <footer class="py-4 bg-light text-center">
+    <div class="container">
+      <p>&copy; 2025 Herbary Spices Store. All rights reserved.</p>
+    </div>
+  </footer>
 </html>
