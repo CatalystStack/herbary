@@ -1,156 +1,137 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  background: #e8f5e9; /* Light Green Background */
-  color: #2c3e50;
-}
-/* Full-Width Header with Black Background and Lemon Yellow Text */
-/* Full-Width Header with Lemon Yellow Background */
 header {
-  background: #ffff; /* Lemon Yellow Background */
-  color: black; /* Default Text Color */
-  padding: 20px; /* Increased Padding */
-  width: 100%; /* Full width */
-  height: 120px; /* Increased Height */
+  background: #0000;
+  color: black;
+  padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center align menu */
-  position: relative; /* Allows positioning elements inside */
-  box-sizing: border-box;
-}
-
-/* Logo Styling (Left-aligned, Increased Size) */
-.logo {
-  height: 100px; /* Increased Size */
-  position: absolute;
-  left: 80px; /* Keeps logo on the left */
-}
-
-/* Navigation Menu (Centered) */
-nav {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center; /* Center align menu items */
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
   justify-content: center;
-  width: 100%; /* Ensures full width */
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 30px; /* Increased spacing for better visibility */
+/* Navigation Bar */
+.navbar {
+  background: none;
+  padding: 10px 0;
 }
 
-nav ul li a {
-  color: black; /* Black Text */
-  text-decoration: none;
-  font-size: 20px; /* Increased font size */
+.navbar-nav .nav-link {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+.nav-link {
   font-weight: bold;
+  color: black !important;
+  text-transform: uppercase;
 }
 
-/* Make Header Responsive */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-    height: auto; /* Adjust height for small screens */
-    padding: 10px;
-  }
-
-  .logo {
-    position: static; /* Reset positioning for smaller screens */
-    transform: none;
-    margin-bottom: 10px;
-  }
-
-  nav ul {
-    flex-direction: column;
-  }
-
-  nav ul li {
-    display: block;
-    margin: 10px 0;
-  }
+.nav-link:hover {
+  color: #ff6600 !important;
+  text-decoration: underline;
 }
 
-/* Fullscreen Hero Section */
-.hero {
+.text-green {
+  color: green !important;
+}
+
+.banner-section {
+  background-image: url('images/banner-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right 20%;
+  height: 100vh; /* Full screen height */
   width: 100%;
-  height: 100vh; /* Fullscreen height */
-  overflow: hidden;
   position: relative;
   display: flex;
+  flex-direction: column; /* Stack elements vertically */
   align-items: center;
   justify-content: center;
 }
 
-/* Fullscreen Moving Image */
-.moving-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.banner-text {
   position: absolute;
-  animation: moveBanner 8s linear infinite alternate;
+  top: 5%;
+  left: 5%;
+  color: black;
 }
 
-@keyframes moveBanner {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-10%);
-  }
-}
-/* About Page Styling */
-.about-section {
-  padding: 40px;
-  max-width: 900px;
-  margin: auto;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-.about-section h1 {
-  text-align: center;
-  color: #333;
-}
-
-.about-section h2 {
-  color: #444;
-  margin-top: 20px;
-}
-
-.about-section p,
-.about-section ul {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.about-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.about-section ul li {
-  background: #f4f4f4;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
+.info-section {
+  width: 100%;
+  padding: 40px 0;
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.1); /* Dark overlay for better readability */
   color: white;
+}
+
+.info-section .container-lg {
+  position: relative;
+  z-index: 2;
+}
+
+/* Style the Icons */
+.info-section .icon {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .banner-text {
+    top: 35%;
+    left: 3%;
+    font-size: 1.5rem;
+  }
+}
+.bg-light-green {
+  background-color: #6bb252 !important;
+  color: black !important;
+}
+
+.bg-dark-green {
+  background-color: #364127 !important;
+  color: white !important;
+}
+.card-text {
+  min-height: 60px;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card-body {
+  flex-grow: 1;
+}
+.product-card {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.product-card:hover {
+  transform: scale(1.05);
+}
+.product-details {
+  display: none;
+}
+.book-now-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: #333;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }

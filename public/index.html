@@ -1,42 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Herbary - Herbal Products</title>
-    <link rel="stylesheet" href="assets/style.css" />
-    <!-- Link to CSS file -->
-  </head>
-  <body>
-    <header>
-      <img src="assets/logo.jpg" alt="Herbary Logo" class="logo" />
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </nav>
-    </header>
+   <head>
+      <title>Herbary - Premium Spices Store</title>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="author" content="Herbary" />
+      <meta name="keywords" content="spices, organic, herbs" />
+      <meta
+         name="description"
+         content="Herbary offers premium, natural, and organic spices for a healthier lifestyle."
+         />
+      <!-- External Stylesheets -->
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+         />
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         />
+      <link rel="stylesheet" type="text/css" href="css/vendor.css" />
+      <link rel="stylesheet" type="text/css" href="assets/style.css" />
+   </head>
+   <body>
+      <header>
+         <div class="container-fluid">
+            <div class="row py-3 border-bottom align-items-center">
+               <div class="col-md-2">
+                  <a href="index.html">
+                  <img
+                     src="assets/images/logo.jpg"
+                     alt="Herbary Logo"
+                     class="img-fluid"
+                     />
+                  </a>
+               </div>
+               <div class="col-md-5">
+              <div class="search-bar d-flex w-100 bg-light p-2 rounded-4">
+              <input
+                type="text"
+                class="form-control border-0 bg-transparent"
+                placeholder="Search for products..."
+              />
+              <button class="btn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 7-7a7 7 0 0 1-7 7Z"
+                  />
+                </svg>
+              </button>
+            </div>
+               </div>
+               <div class="col-md-5 text-end">
+                  <nav>
+                     <ul class="nav">
+                        <li class="nav-item">
+                           <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="products.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                     </ul>
+                  </nav>
+               </div>
+            </div>
+         </div>
+      </header>
+      <section class="banner-section">
+         <div class="container-lg">
+            <div class="row">
+               <div class="col-lg-6 pt-5 mt-5">
+                  <h2 class="display-1 ls-1">
+                     <span class="fw-bold text-green">Natural</span> Spices for a
+                     <span class="fw-bold">Healthier You</span>
+                  </h2>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Featured Products Section -->
+      <section class="featured-products py-5">
+         <div class="container">
+            <div class="row justify-content-between align-items-center mb-4">
+               <div class="col">
+                  <h2 class="fw-bold">Featured Products</h2>
+               </div>
+               <div class="col text-end">
+                  <a href="products.html" class="btn btn-outline-primary">View All</a>
+               </div>
+            </div>
+            <div class="row" id="featured-product-container"></div>
+         </div>
+      </section>
+      </section>
+      <section class="new-section py-5 bg-light">
+         <div class="container">
+            <h2 class="fw-bold">Why Choose Herbary</h2>
+            <!-- <p class="lead">Experience the purity and aroma of our handpicked organic spices.</p> -->
+            <img src="assets/images/why.jpg" alt="Spices Display" class="img-fluid mt-3 rounded shadow" />
+         </div>
+      </section>
+     
+      <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="js/plugins.js"></script>
+      <script src="js/script.js"></script>
+      <script>
+         window.onload = function () {
+           let maxHeight = 0;
+           document.querySelectorAll('.card-text').forEach((el) => {
+             if (el.offsetHeight > maxHeight) {
+               maxHeight = el.offsetHeight;
+             }
+           });
+           document.querySelectorAll('.card-text').forEach((el) => {
+             el.style.height = maxHeight + 'px';
+           });
+         };
+         const products = [
+           {
+             id: 'black-pepper-whole',
+             name: 'Black Pepper Whole',
+             images: [
+               'black-pepper-whole/1.jpg',
+               'black-pepper-whole/2.jpg',
+               'black-pepper-whole/3.jpg',
+             ],
+             description: 'Premium whole black pepper, rich in aroma and flavor.',
+             amazonLink: 'https://amzn.in/d/dytm9IJ',
+           },
+           {
+             id: 'cardamom',
+             name: 'Cardamom',
+             images: ['cardamom/1.jpg', 'cardamom/2.jpg', 'cardamom/3.jpg'],
+             description: 'High-quality cardamom with a strong, sweet aroma.',
+             amazonLink: 'https://amzn.in/d/8wuCxxL',
+           },
+           {
+             id: 'dried-ginger',
+             name: 'Dried Ginger',
+             images: [
+               'dried-ginger/1.jpg',
+               'dried-ginger/2.jpg',
+               'dried-ginger/3.jpg',
+             ],
+             description: 'Sun-dried ginger with a sharp, spicy flavor.',
+             amazonLink: 'https://amzn.in/d/bf7nsqX',
+           },
+           
+         ];
+         
+         document.addEventListener('DOMContentLoaded', function () {
+         const productContainer = document.getElementById('featured-product-container');
+         
+         products.forEach((product) => {
+         let indicators = '';
+         let carouselItems = '';
+         
+         product.images.forEach((image, index) => {
+         indicators += `<button type="button" data-bs-target="#carousel-${product.id}" data-bs-slide-to="${index}" 
+         ${index === 0 ? 'class="active"' : ''} aria-label="Slide ${index + 1}"></button>`;
+         
+         carouselItems += `
+         <div class="carousel-item ${index === 0 ? "active" : ""}">
+           <img src="assets/images/products/${image}" class="d-block w-100" alt="${product.name}">
+         </div>`;
+         });
+         
+         const productHTML = `
+         <div class="col-md-4 mb-4">
+         <div class="card">
+           <div id="carousel-${product.id}" class="carousel slide" data-bs-ride="carousel">
+             
+             <!-- Indicators -->
+             <div class="carousel-indicators">
+               ${indicators}
+             </div>
+         
+             <!-- Slides -->
+             <div class="carousel-inner">
+               ${carouselItems}
+             </div>
+         
+             <!-- Navigation Arrows -->
+             <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Previous</span>
+             </button>
+             <button class="carousel-control-next" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Next</span>
+             </button>
+         
+           </div>
+         
+           <!-- Card Content -->
+           <div class="card-body text-center">
+             <h5 class="card-title">${product.name}</h5>
+             <p class="card-text">${product.description}</p>
+             <a href="${product.amazonLink}" target="_blank" class="btn btn-primary book-now-btn">Buy Now</a>
+           </div>
+         </div>
+         </div>`;
+         
+         productContainer.innerHTML += productHTML;
+         });
+         });
+         
+      </script>
+      <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.querySelector('.search-bar input');
+    const searchButton = document.querySelector('.search-bar button');
 
-    <section class="hero">
-      <img
-        src="assets/herbal-banner.jpg"
-        alt="Herbal Products"
-        class="moving-image"
-      />
-    </section>
+    function redirectToProductsPage() {
+      const query = searchInput.value.trim();
+      if (query) {
+        window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+      }
+    }
 
-    <section class="intro">
-      <h2>Nature’s Best Herbal Products</h2>
-      <p>
-        Explore our premium selection of natural herbal products and medicinal herbs.
-      </p>
-    </section>
+    searchButton.addEventListener('click', redirectToProductsPage);
+    searchInput.addEventListener('keyup', function (event) {
+      if (event.key === 'Enter') {
+        redirectToProductsPage();
+      }
+    });
+  });
+</script>
 
-    <footer>
-      <p>&copy; 2025 Herbary. All rights reserved.</p>
-    </footer>
-  </body>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+   </body>
+   <footer class="py-5 bg-light">
+      <div class="container text-center">
+         <p>&copy; 2025 Herbary Spices Store. All rights reserved.</p>
+         <div class="social-links">
+            <a href="https://twitter.com" target="_blank"
+               ><i class="fab fa-twitter"></i
+               ></a>
+            <a href="https://facebook.com" target="_blank"
+               ><i class="fab fa-facebook-f"></i
+               ></a>
+            <a href="https://instagram.com" target="_blank"
+               ><i class="fab fa-instagram"></i
+               ></a>
+            <a href="https://amazon.com" target="_blank"
+               ><i class="fab fa-amazon"></i
+               ></a>
+         </div>
+      </div>
+   </footer>
 </html>
