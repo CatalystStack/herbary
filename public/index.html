@@ -28,7 +28,7 @@
    <body>
       <header>
          <div class="container-fluid">
-            <div class="row py-3 border-bottom align-items-center">
+            <div class="row py-3 align-items-center">
                <div class="col-md-2">
                   <a href="index.html">
                   <img
@@ -108,7 +108,7 @@
          </div>
       </section>
       </section>
-      <section class="new-section py-5 bg-light">
+      <section class="new-section py-5">
          <div class="container">
             <h2 class="fw-bold">Why Choose Herbary</h2>
             <!-- <p class="lead">Experience the purity and aroma of our handpicked organic spices.</p> -->
@@ -224,26 +224,25 @@
          
       </script>
       <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const searchInput = document.querySelector('.search-bar input');
-    const searchButton = document.querySelector('.search-bar button');
+         document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.querySelector('.search-bar input');
+            const searchButton = document.querySelector('.search-bar button');
 
-    function redirectToProductsPage() {
-      const query = searchInput.value.trim();
-      if (query) {
-        window.location.href = `products.html?search=${encodeURIComponent(query)}`;
-      }
-    }
+            function redirectToProductsPage() {
+               const query = searchInput.value.trim();
+               if (query) {
+               window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+               }
+            }
 
-    searchButton.addEventListener('click', redirectToProductsPage);
-    searchInput.addEventListener('keyup', function (event) {
-      if (event.key === 'Enter') {
-        redirectToProductsPage();
-      }
-    });
-  });
-</script>
-
+            searchButton.addEventListener('click', redirectToProductsPage);
+            searchInput.addEventListener('keyup', function (event) {
+               if (event.key === 'Enter') {
+               redirectToProductsPage();
+               }
+         });
+       });
+      </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
    </body>
    <footer class="py-5 bg-light">
