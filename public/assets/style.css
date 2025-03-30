@@ -1,6 +1,5 @@
-/* Full-Width Header with Lemon Yellow Background */
 header {
-  background: #ffff; /* Softer Lemon Yellow */
+  background: #ffff; 
   color: black;
   padding: 20px;
   display: flex;
@@ -26,7 +25,7 @@ header {
   color: #007bff;
 }
 
-/* Navigation Links */
+
 .nav-link {
   font-weight: bold;
   color: black !important;
@@ -38,7 +37,7 @@ header {
   text-decoration: underline;
 }
 
-/* Apply Green Color to 'Natural' */
+
 .text-green {
   color: green !important;
 }
@@ -57,7 +56,7 @@ header {
   justify-content: center;
 }
 
-/* Adjust Banner Text Position */
+
 .banner-text {
   position: absolute;
   top: 5%;
@@ -65,18 +64,17 @@ header {
   color: black;
 }
 
-/* Ensure Info Section is Inside the Banner */
+
 .info-section {
   width: 100%;
   padding: 40px 0;
   position: absolute;
-  bottom: 20%; /* Align to bottom of banner */
+  bottom: 20%; 
   left: 0;
   background: rgba(0, 0, 0, 0.1); /* Dark overlay for better readability */
   color: white;
 }
 
-/* Ensure Content is Readable */
 .info-section .container-lg {
   position: relative;
   z-index: 2;
@@ -87,7 +85,6 @@ header {
   margin-bottom: 15px;
 }
 
-/* Responsive Banner Text */
 @media (max-width: 768px) {
   .banner-text {
     top: 35%;
@@ -96,16 +93,16 @@ header {
   }
 }
 .bg-light-green {
-  background-color: #6bb252 !important; /* Light Green */
+  background-color: #6bb252 !important; 
   color: black !important;
 }
 
 .bg-dark-green {
-  background-color: #364127 !important; /* Dark Green */
+  background-color: #364127 !important; 
   color: white !important;
 }
 .card-text {
-  min-height: 60px; /* Adjust based on content */
+  min-height: 60px; 
   overflow: hidden;
 }
 

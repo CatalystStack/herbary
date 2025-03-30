@@ -67,7 +67,6 @@
         </div>
       </div>
     </header>
-
     <section class="products-section py-5">
       <div class="container">
         <h2 class="fw-bold text-center">Our Products</h2>
@@ -79,7 +78,6 @@
         <div class="row" id="product-container"></div>
       </div>
     </section>
-
     <script>
       window.onload = function () {
         let maxHeight = 0;
@@ -102,14 +100,14 @@
             'black-pepper-whole/3.jpg',
           ],
           description: 'Premium whole black pepper, rich in aroma and flavor.',
-          amazonLink: 'https://www.amazon.com/s?k=Black+Pepper+Whole',
+          amazonLink: 'https://amzn.in/d/dytm9IJ',
         },
         {
           id: 'cardamom',
           name: 'Cardamom',
           images: ['cardamom/1.jpg', 'cardamom/2.jpg', 'cardamom/3.jpg'],
           description: 'High-quality cardamom with a strong, sweet aroma.',
-          amazonLink: 'https://www.amazon.com/s?k=Cardamom',
+          amazonLink: 'https://amzn.in/d/8wuCxxL',
         },
         {
           id: 'cardamom-seed',
@@ -121,7 +119,7 @@
           ],
           description:
             'Premium-grade cardamom seeds for a flavorful experience.',
-          amazonLink: 'https://www.amazon.com/s?k=Cardamom+Seed',
+          amazonLink: 'https://amzn.in/d/5Jt6TcT',
         },
         {
           id: 'dried-ginger',
@@ -132,7 +130,7 @@
             'dried-ginger/3.jpg',
           ],
           description: 'Sun-dried ginger with a sharp, spicy flavor.',
-          amazonLink: 'https://www.amazon.com/s?k=Dried+Ginger',
+          amazonLink: 'https://amzn.in/d/bf7nsqX',
         },
         {
           id: 'ginger-powder',
@@ -144,18 +142,7 @@
           ],
           description:
             'Finely ground ginger powder, perfect for cooking and tea.',
-          amazonLink: 'https://www.amazon.com/s?k=Ginger+Powder',
-        },
-        {
-          id: 'spices-coffee',
-          name: 'Spices Coffee',
-          images: [
-            'spices-coffee/1.jpg',
-            'spices-coffee/2.jpg',
-            'spices-coffee/3.jpg',
-          ],
-          description: 'A rich blend of coffee infused with aromatic spices.',
-          amazonLink: 'https://www.amazon.com/s?k=Spices+Coffee',
+          amazonLink: 'ttps://amzn.in/d/1aRAL3p',
         },
         {
           id: 'turmeric-powder',
@@ -166,7 +153,7 @@
             'turmeric-powder/3.jpg',
           ],
           description: 'Pure turmeric powder with high curcumin content.',
-          amazonLink: 'https://www.amazon.com/s?k=Turmeric+Powder',
+          amazonLink: 'https://amzn.in/d/he1OH2A',
         },
         {
           id: 'turmeric-whole',
@@ -178,7 +165,7 @@
           ],
           description:
             'Whole turmeric roots for an authentic culinary experience.',
-          amazonLink: 'https://www.amazon.com/s?k=Turmeric+Whole',
+          amazonLink: 'https://amzn.in/d/fasVC84',
         },
         {
           id: 'white-pepper',
@@ -189,7 +176,18 @@
             'white-pepper/3.jpg',
           ],
           description: 'Mild yet pungent white pepper for refined seasoning.',
-          amazonLink: 'https://www.amazon.com/s?k=White+Pepper',
+          amazonLink: 'https://amzn.in/d/8ekrBd0',
+        },
+        {
+          id: 'spices-coffee',
+          name: 'Spices Coffee',
+          images: [
+            'spices-coffee/1.jpg',
+            'spices-coffee/2.jpg',
+            'spices-coffee/3.jpg',
+          ],
+          description: 'A rich blend of coffee infused with aromatic spices.',
+          amazonLink: '',
         },
       ];
 
@@ -208,41 +206,50 @@
             } aria-label="Slide ${index + 1}"></button>`;
 
             carouselItems += `
-        <div class="carousel-item ${index === 0 ? 'active' : ''}">
-          <img src="assets/images/products/${image}" class="d-block w-100" alt="${
+           <div class="carousel-item ${index === 0 ? 'active' : ''}">
+             <img src="assets/images/products/${image}" class="d-block w-100" alt="${
               product.name
             }">
-        </div>`;
+           </div>`;
           });
 
           const productHTML = `
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div id="carousel-${product.id}" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">${indicators}</div>
-            <div class="carousel-inner">${carouselItems}</div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-          <div class="card-body text-center">
-            <h5 class="card-title">${product.name}</h5>
-            <p class="card-text">${product.description}</p>
-            <a href="${product.amazonLink}" target="_blank" class="btn btn-primary book-now-btn">Buy Now</a>
-          </div>
-        </div>
-      </div>
-    `;
+         <div class="col-md-4 mb-4">
+           <div class="card">
+             <div id="carousel-${
+               product.id
+             }" class="carousel slide" data-bs-ride="carousel">
+               <div class="carousel-indicators">${indicators}</div>
+               <div class="carousel-inner">${carouselItems}</div>
+               <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${
+                 product.id
+               }" data-bs-slide="prev">
+                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                 <span class="visually-hidden">Previous</span>
+               </button>
+               <button class="carousel-control-next" type="button" data-bs-target="#carousel-${
+                 product.id
+               }" data-bs-slide="next">
+                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                 <span class="visually-hidden">Next</span>
+               </button>
+             </div>
+             <div class="card-body text-center">
+               <h5 class="card-title">${product.name}</h5>
+               <p class="card-text">${product.description}</p>
+                 ${
+                   product.amazonLink
+                     ? `<a href="${product.amazonLink}" target="_blank" class="btn btn-primary book-now-btn">Buy Now</a>`
+                     : `<button class="btn btn-secondary book-now-btn" disabled>Coming Soon</button>`
+                 }
+             </div>
+           </div>
+         </div>
+         `;
           productContainer.innerHTML += productHTML;
         });
       });
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
   <footer class="py-4 bg-light text-center">
