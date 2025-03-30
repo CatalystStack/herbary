@@ -1,5 +1,5 @@
 header {
-  background: #ffff; 
+  background: #0000;
   color: black;
   padding: 20px;
   display: flex;
@@ -25,7 +25,6 @@ header {
   color: #007bff;
 }
 
-
 .nav-link {
   font-weight: bold;
   color: black !important;
@@ -36,7 +35,6 @@ header {
   color: #ff6600 !important;
   text-decoration: underline;
 }
-
 
 .text-green {
   color: green !important;
@@ -56,7 +54,6 @@ header {
   justify-content: center;
 }
 
-
 .banner-text {
   position: absolute;
   top: 5%;
@@ -64,12 +61,11 @@ header {
   color: black;
 }
 
-
 .info-section {
   width: 100%;
   padding: 40px 0;
   position: absolute;
-  bottom: 20%; 
+  bottom: 20%;
   left: 0;
   background: rgba(0, 0, 0, 0.1); /* Dark overlay for better readability */
   color: white;
@@ -93,16 +89,16 @@ header {
   }
 }
 .bg-light-green {
-  background-color: #6bb252 !important; 
+  background-color: #6bb252 !important;
   color: black !important;
 }
 
 .bg-dark-green {
-  background-color: #364127 !important; 
+  background-color: #364127 !important;
   color: white !important;
 }
 .card-text {
-  min-height: 60px; 
+  min-height: 60px;
   overflow: hidden;
 }
 
