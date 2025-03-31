@@ -181,7 +181,7 @@ header {
 }
 
 .bg-light-green-3 {
-  background-color: #c8e6c9; /* Soft Lime Green */
+  background-color: #bae1ed; /* Soft Lime Green */
 }
 
 .text-dark {
@@ -208,4 +208,14 @@ header {
 
 .rounded {
   border-radius: 10px;
+}
+.social-icons a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #333; /* Default icon color */
+}
+
+.social-icons a:hover {
+  color: #007bff; /* Icon color on hover */
 }
