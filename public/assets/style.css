@@ -27,7 +27,7 @@ header {
 
 .nav-link {
   font-weight: bold;
-  color: black !important;
+  color: #e7bb45;
   text-transform: uppercase;
 }
 
@@ -41,7 +41,7 @@ header {
 }
 
 .banner-section {
-  background-image: url('images/banner-2.jpg');
+  background-image: url('images/banner-black.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right 20%;
@@ -136,17 +136,17 @@ header {
   border-radius: 50%;
 }
 .about-section {
-  background-color: #f8f9fa;
+  background-color: #000;
   padding: 60px 0;
 }
 
 .about-section h2,
 .about-section h3 {
-  color: #2c3e50;
+  color: #e7bb45;
 }
 
 .about-section p {
-  color: #555;
+  color: #a19e9e;
   font-size: 1.1rem;
 }
 
@@ -154,6 +154,44 @@ header {
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.products-section h2 {
+  color: #e7bb45;
+}
+
+.products-section p {
+  color: #a19e9e;
+  font-size: 1.1rem;
+}
+
+.contact-section h4,
+.contact-section h2 {
+  color: #e7bb45;
+}
+
+.contact-section p {
+  color: #a19e9e;
+  font-size: 1.1rem;
+}
+
+.featured-products h4,
+.featured-products h2 {
+  color: #e7bb45;
+}
+
+.featured-products p {
+  color: #a19e9e;
+  font-size: 1.1rem;
+}
+
+.offer-section h3 {
+  color: #e7bb45;
+}
+
+.offer-section p {
+  color: #a19e9e;
+  font-size: 1.1rem;
 }
 
 .card {
@@ -184,6 +222,11 @@ header {
   background-color: #bae1ed; /* Soft Lime Green */
 }
 
+.bg-3 {
+  background-color: #57c9eb; /* Soft Lime Green */
+}
+
+
 .text-dark {
   color: #333;
 }
@@ -213,9 +256,49 @@ header {
   margin: 0 10px;
   text-decoration: none;
   font-size: 24px;
-  color: #333; /* Default icon color */
+  color: #ede865; /* Default icon color */
 }
 
 .social-icons a:hover {
   color: #007bff; /* Icon color on hover */
 }
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header,
+.navbar {
+  background-color: #111111;
+}
+
+/* .card {
+  background-color: #1e1e1e;
+  border: none;
+} */
+
+.btn-primary {
+  background-color: #1c0edf;
+  border-color: #3cb371;
+}
+
+.btn-primary:hover {
+  background-color: #48d1cc;
+  border-color: #48d1cc;
+}
+
+a {
+  color: #3cb371;
+}
+
+a:hover {
+  color: #ffd700;
+}
+
+footer {
+  background-color: #212220; /* Light grey */
+  color: #b8ba9d; /* Dark text for contrast */
+}
+
