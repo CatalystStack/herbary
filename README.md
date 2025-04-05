@@ -1,6 +1,6 @@
 # 🌿 Herbary – Static Web App
 
-Herbary is a static web application designed to showcase a curated collection of herbs and plants, along with their images and descriptions. The app is lightweight, fast, and easily deployable, making it perfect for educational or personal use.
+Herbary is a static web application designed to showcase a curated collection of herbs and seasonings, along with their images and descriptions. The app is lightweight, fast, and easily deployable, making it perfect for educational or personal use.
 
 ## 🚀 Features
 
@@ -11,4 +11,48 @@ Herbary is a static web application designed to showcase a curated collection of
 - Domain hosted via GoDaddy
 
 ## 📁 Project Structure
+
+```
+herbary/
+├── public/               # Static assets (HTML, images, etc.)
+├── server/               # Optional Node.js backend (API routes)
+├── .gitignore
+├── README.md
+└── package.json
+```
+
+## 🛠️ Installation & Setup
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/herbary.git
+   cd herbary
+   ```
+
+2. **Install dependencies (if using Node.js backend):**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the app locally:**
+
+   ```bash
+   npm start
+   ```
+
+4. **Build for production:**
+
+   ```bash
+   npm run build
+   ```
+
+## 🌐 Deployment
+
+The app deployed to static hosting service GitHub Pages, with custom domain from GoDaddy.
+
+## 📄 License
+
+This project is private and available under the [MIT License](LICENSE).
 
