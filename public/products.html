@@ -83,17 +83,6 @@
       </div>
     </section>
     <script>
-      window.onload = function () {
-        let maxHeight = 0;
-        document.querySelectorAll('.card-text').forEach((el) => {
-          if (el.offsetHeight > maxHeight) {
-            maxHeight = el.offsetHeight;
-          }
-        });
-        document.querySelectorAll('.card-text').forEach((el) => {
-          el.style.height = maxHeight + 'px';
-        });
-      };
       const products = [
         {
           id: 'black-pepper-whole',
@@ -191,14 +180,21 @@
             'spices-coffee/3.jpg',
           ],
           description: 'A rich blend of coffee infused with aromatic spices.',
-          amazonLink: '',
+          amazonLink: '', // This triggers the "Coming Soon" button
         },
       ];
 
       document.addEventListener('DOMContentLoaded', function () {
         const productContainer = document.getElementById('product-container');
+        const searchInput = document.querySelector('.search-bar input');
+        const searchButton = document.querySelector('.search-bar button');
 
-        products.forEach((product) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        let searchQuery = urlParams.get('search')
+          ? urlParams.get('search').toLowerCase()
+          : '';
+
+        function createProductHTML(product) {
           let indicators = '';
           let carouselItems = '';
 
@@ -210,101 +206,30 @@
             } aria-label="Slide ${index + 1}"></button>`;
 
             carouselItems += `
-           <div class="carousel-item ${index === 0 ? 'active' : ''}">
-             <img src="assets/images/products/${image}" class="d-block w-100" alt="${
-              product.name
-            }">
-           </div>`;
-          });
-
-          const productHTML = `
-         <div class="col-md-4 mb-4">
-           <div class="card">
-             <div id="carousel-${
-               product.id
-             }" class="carousel slide" data-bs-ride="carousel">
-               <div class="carousel-indicators">${indicators}</div>
-               <div class="carousel-inner">${carouselItems}</div>
-               <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${
-                 product.id
-               }" data-bs-slide="prev">
-                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                 <span class="visually-hidden">Previous</span>
-               </button>
-               <button class="carousel-control-next" type="button" data-bs-target="#carousel-${
-                 product.id
-               }" data-bs-slide="next">
-                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                 <span class="visually-hidden">Next</span>
-               </button>
-             </div>
-             <div class="card-body text-center">
-               <h5 class="card-title">${product.name}</h5>
-               <p class="card-text">${product.description}</p>
-                 ${
-                   product.amazonLink
-                     ? `<a href="${product.amazonLink}" target="_blank" class="btn btn-primary book-now-btn">Buy Now</a>`
-                     : `<button class="btn btn-secondary book-now-btn" disabled>Coming Soon</button>`
-                 }
-             </div>
-           </div>
-         </div>
-         `;
-          productContainer.innerHTML += productHTML;
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const productContainer = document.getElementById('product-container');
-        const searchInput = document.querySelector('.search-bar input');
-        const searchButton = document.querySelector('.search-bar button');
-
-        // Get search query from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        let searchQuery = urlParams.get('search')
-          ? urlParams.get('search').toLowerCase()
-          : '';
-
-        function displayProducts(filteredProducts) {
-          productContainer.innerHTML = ''; // Clear previous results
-
-          if (filteredProducts.length === 0) {
-            productContainer.innerHTML = `<p class="text-center">No products found for "${searchQuery}"</p>`;
-            return;
-          }
-
-          filteredProducts.forEach((product) => {
-            let indicators = '';
-            let carouselItems = '';
-
-            product.images.forEach((image, index) => {
-              indicators += `<button type="button" data-bs-target="#carousel-${
-                product.id
-              }" data-bs-slide-to="${index}" 
-          ${index === 0 ? 'class="active"' : ''} aria-label="Slide ${
-                index + 1
-              }"></button>`;
-
-              carouselItems += `
           <div class="carousel-item ${index === 0 ? 'active' : ''}">
             <img src="assets/images/products/${image}" class="d-block w-100" alt="${
-                product.name
-              }">
+              product.name
+            }">
           </div>`;
-            });
+          });
 
-            const productHTML = `
+          return `
         <div class="col-md-4 mb-4">
           <div class="card">
-            <div id="carousel-${product.id}" class="carousel slide" data-bs-ride="carousel">
+            <div id="carousel-${
+              product.id
+            }" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-indicators">${indicators}</div>
               <div class="carousel-inner">${carouselItems}</div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="prev">
+              <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${
+                product.id
+              }" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carousel-${product.id}" data-bs-slide="next">
+              <button class="carousel-control-next" type="button" data-bs-target="#carousel-${
+                product.id
+              }" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>
@@ -312,45 +237,57 @@
             <div class="card-body text-center">
               <h5 class="card-title">${product.name}</h5>
               <p class="card-text">${product.description}</p>
-              <a href="${product.amazonLink}" target="_blank" class="btn btn-primary book-now-btn">Buy Now</a>
+              ${
+                product.amazonLink
+                  ? `<a href="${product.amazonLink}" target="_blank" class="btn btn-primary book-now-btn">Buy Now</a>`
+                  : `<button class="btn btn-secondary book-now-btn" disabled>Coming Soon</button>`
+              }
             </div>
           </div>
         </div>`;
+        }
 
-            productContainer.innerHTML += productHTML;
+        function displayProducts(filteredProducts) {
+          productContainer.innerHTML = '';
+
+          if (filteredProducts.length === 0) {
+            productContainer.innerHTML = `<p class="text-center">No products found for "${searchQuery}"</p>`;
+            return;
+          }
+
+          filteredProducts.forEach((product) => {
+            productContainer.innerHTML += createProductHTML(product);
+          });
+
+          let maxHeight = 0;
+          document.querySelectorAll('.card-text').forEach((el) => {
+            if (el.offsetHeight > maxHeight) maxHeight = el.offsetHeight;
+          });
+          document.querySelectorAll('.card-text').forEach((el) => {
+            el.style.height = maxHeight + 'px';
           });
         }
 
         function filterProducts() {
           searchQuery = searchInput.value.trim().toLowerCase();
-
-          // Update the URL without reloading the page
           const newUrl = searchQuery
             ? `products.html?search=${encodeURIComponent(searchQuery)}`
             : 'products.html';
           window.history.pushState({}, '', newUrl);
 
-          // Filter products based on search query
-          const filteredProducts = products.filter(
+          const filtered = products.filter(
             (product) =>
               product.name.toLowerCase().includes(searchQuery) ||
               product.description.toLowerCase().includes(searchQuery)
           );
-
-          displayProducts(filteredProducts);
+          displayProducts(filtered);
         }
 
-        // Listen for search button click
         searchButton.addEventListener('click', filterProducts);
-
-        // Allow pressing Enter to search
         searchInput.addEventListener('keyup', function (event) {
-          if (event.key === 'Enter') {
-            filterProducts();
-          }
+          if (event.key === 'Enter') filterProducts();
         });
 
-        // Display products based on initial search query (from URL)
         const filteredProducts = products.filter(
           (product) =>
             product.name.toLowerCase().includes(searchQuery) ||
@@ -359,7 +296,6 @@
         displayProducts(filteredProducts);
       });
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
   <footer class="py-4 bg-light">
